@@ -61,17 +61,17 @@ public class FormTests {
         //Date
         $(".react-datepicker__year-select").selectOptionByValue(year);
         $(".react-datepicker__month-select").selectOptionByValue("0"); // 0-11 month 0-January etc
-        $(".react-datepicker__day.react-datepicker__day--001").click();
+        $(".react-datepicker__day.react-datepicker__day--" + day).click();
 
         //Subjects
-        $("#subjectsInput").setValue("Ma").click();
-        $(byText((String) Array.get(subjects, 0))).click();
-        $("#subjectsInput").setValue("Ac");
-        $(byText((String) Array.get(subjects, 1))).click();
-
+        for (String subject : subjects){
+            $("#subjectsInput").setValue(subject.substring(0,2)).click();
+            $(byText(subject)).click();
+        }
         //Hobby
-        $(byText(String.valueOf(Array.get(hobbies, 0)))).click();
-        $(byText(String.valueOf(Array.get(hobbies, 1)))).click();
+        for (String hobby : hobbies){
+            $(byText(hobby)).click();
+        }
 
         //Image
         $("#uploadPicture").uploadFromClasspath("Mem.png");
