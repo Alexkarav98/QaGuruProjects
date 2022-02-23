@@ -2,12 +2,11 @@ package tests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import pages.pageObjects.HerokuAppPageObject;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.browserSize;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class HerokuAppTests {
     HerokuAppPageObject herokuAppPageObject = new HerokuAppPageObject();
@@ -21,6 +20,6 @@ public class HerokuAppTests {
     @Test
     void DragAndDrop(){
         open("/drag_and_drop");
-        herokuAppPageObject.DragAndDrop();
+        herokuAppPageObject.dragAndDrop();
     }
 }

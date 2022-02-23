@@ -11,7 +11,7 @@ public class HerokuAppPageObject {
     private SelenideElement columnA = $(By.id("column-a"));
     private SelenideElement columnB = $(By.id("column-b"));
 
-    public HerokuAppPageObject DragAndDrop(){
+    public HerokuAppPageObject dragAndDrop(){
         columnA.dragAndDropTo(columnB);
         columnA.shouldHave(Condition.text("B"));
         columnB.shouldHave(Condition.text("A"));
