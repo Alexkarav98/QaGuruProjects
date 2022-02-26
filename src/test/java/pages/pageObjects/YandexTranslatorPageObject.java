@@ -2,6 +2,7 @@ package pages.pageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byId;
@@ -16,18 +17,21 @@ public class YandexTranslatorPageObject {
     private final SelenideElement textOutput = $(byId("translation"));
     private String text;
 
+    @Step("Выбираем язык с которого будет перевод")
     public YandexTranslatorPageObject choiceInputLanguage(String inputLanguage) {
         languageSelectionButton.click();
         $(byText(inputLanguage)).click();
         return this;
     }
 
+    @Step("Выбираем язык для перевода")
     public YandexTranslatorPageObject choiceOutputLanguage(String outputLanguage) {
         languageOutputSelectionButton.click();
         $(byText(outputLanguage)).click();
         return this;
     }
 
+    @Step("Вводим текст")
     public YandexTranslatorPageObject inputText(String text) {
         textInputClick.click();
         textInputBox.setValue(text);
