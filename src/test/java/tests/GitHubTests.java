@@ -40,7 +40,7 @@ public class GitHubTests {
     @Test
     void IssueTestAllureListener() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        open("https://github.com");
+
         $(".header-search-input").click();
         $(".header-search-input").sendKeys("eroshenkoam/allure-example");
         $(".header-search-input").submit();
@@ -48,5 +48,16 @@ public class GitHubTests {
         $(By.linkText("eroshenkoam/allure-example")).click();
         $(By.partialLinkText("Issues")).click();
         $(withText("#68")).should(Condition.exist);
+    }
+
+    @Test
+    void IssueTestAnnotationStep(){
+        String repo = "eroshenkoam/allure-example";
+        GitHubSelenidePageObjects gitHubSelenidePageObjects = new GitHubSelenidePageObjects();
+        open(baseUrl);
+        gitHubSelenidePageObjects.searchRepo(repo)
+                .clickOnRepo(repo)
+                .openIssueTab()
+                .shouldSeeIssueWithNumber("#68");
     }
 }
