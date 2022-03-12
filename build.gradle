@@ -7,15 +7,16 @@ repositories {
     mavenCentral()
 }
 
-def selenideVersion = "6.2.1",
+def selenideVersion = '6.3.4',
     junitVersion = "5.8.2",
-    slf4jVersion = "1.7.32",
-    allureVersion = "2.17.2",
+    slf4jVersion = '1.7.36',
+    allureVersion = '2.17.3',
     assertJVersion =  "3.22.0",
     pdfTestVersion = "1.7.0",
-    xlsTestVersion = "1.4.0",
+    xlsTestVersion = '1.4.0',
     openCsvVersion = "5.6",
-    gsonVersion = "2.9.0"
+    gsonVersion = "2.9.0",
+    js2pVersion = "1.1.1"
 
 dependencies {
     testImplementation(
@@ -26,7 +27,8 @@ dependencies {
             "com.codeborne:pdf-test:$pdfTestVersion",
             "com.codeborne:xls-test:$xlsTestVersion",
             "com.opencsv:opencsv:$openCsvVersion",
-            "com.google.code.gson:gson:$gsonVersion"
+            "com.google.code.gson:gson:$gsonVersion",
+            "org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:$js2pVersion"
     )
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:$slf4jVersion",
