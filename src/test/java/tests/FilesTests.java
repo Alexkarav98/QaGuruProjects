@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FilesTests {
 
-    private String pathZip = "C:\\IdeaProjects\\QaGuruProjects\\src\\test\\resources\\files.zip";
+    private String pathZip ="src/test/resources/files.zip";
     ClassLoader classLoader = getClass().getClassLoader();
     ZipFile zipFile;
 
