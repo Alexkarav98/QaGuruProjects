@@ -1,9 +1,11 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.pageObjects.StudentRegistrationPageObject;
+import utils.Attachments;
 
 
 public class FormTests {
@@ -29,6 +31,14 @@ public class FormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
+    }
+
+    @AfterEach
+    void addAttachments(){
+        Attachments.screenshotAs("Screenshot");
+        Attachments.pageSource();
+        Attachments.browserConsoleLogs();
+        Attachments.addVideo();
     }
 
     @Test
