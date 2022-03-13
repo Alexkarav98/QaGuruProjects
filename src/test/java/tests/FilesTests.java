@@ -3,14 +3,11 @@ package tests;
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import com.opencsv.CSVReader;
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import schemas.JsonSchema;
 
-import javax.validation.constraints.AssertTrue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
