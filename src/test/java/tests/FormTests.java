@@ -4,8 +4,11 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.pageObjects.StudentRegistrationPageObject;
 import utils.Attachments;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 
 public class FormTests {
@@ -31,6 +34,12 @@ public class FormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
     }
 
     @AfterEach
@@ -39,6 +48,7 @@ public class FormTests {
         Attachments.pageSource();
         Attachments.browserConsoleLogs();
         Attachments.addVideo();
+        closeWebDriver();
     }
 
     @Test
