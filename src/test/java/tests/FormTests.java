@@ -36,9 +36,6 @@ public class FormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
-        System.setProperty("user1","user");
-        System.setProperty("password", "1234");
-        System.setProperty("remoteBrowser", "selenoid.autotests.cloud/wd/hub");
 
         Configuration.remote = "https://" + System.getProperty("user") + ":" + System.getProperty("password") + "@" + System.getProperty("remoteBrowser");
 
