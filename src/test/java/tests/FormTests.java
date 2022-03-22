@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.pageObjects.StudentRegistrationPageObject;
@@ -34,9 +35,10 @@ public class FormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://" + System.getProperty("user") + ":" + System.getProperty("password") + "@" + System.getProperty("remoteBrowser");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
+
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
@@ -52,6 +54,7 @@ public class FormTests {
     }
 
     @Test
+    @Tag("Smoke")
     void testFormWithPageObject() {
         StudentRegistrationPageObject studentRegistration = new StudentRegistrationPageObject();
         //Input
@@ -63,7 +66,6 @@ public class FormTests {
                 .enterGender(gender)
                 .enterUserPhone(phone)
                 .enterBirthDate(day, month, year)
-                .enterSubjects(subjects)
                 .enterHobbys(hobbys)
                 .uploadPictureForm(photo)
                 .enterAddress(address)

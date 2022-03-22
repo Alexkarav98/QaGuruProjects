@@ -58,3 +58,9 @@ allure {
 test {
     useJUnitPlatform()
 }
+
+task properties_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "Smoke"
+    }
+}
