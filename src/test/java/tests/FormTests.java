@@ -10,6 +10,7 @@ import pages.pageObjects.StudentRegistrationPageObject;
 import utils.Attachments;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class FormTests {
@@ -35,6 +36,7 @@ public class FormTests {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
+
         Configuration.remote = "https://" + System.getProperty("user") + ":" + System.getProperty("password") + "@" + System.getProperty("remoteBrowser");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -57,6 +59,7 @@ public class FormTests {
     @Tag("Smoke")
     void testFormWithPageObject() {
         StudentRegistrationPageObject studentRegistration = new StudentRegistrationPageObject();
+        open();
         //Input
         studentRegistration.openPage()
                 .enterFirstName(firstName)
