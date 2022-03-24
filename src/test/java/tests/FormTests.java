@@ -37,7 +37,7 @@ public class FormTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1280";
 
-        Configuration.remote = "https://" + System.getenv("user") + ":" + System.getenv("password") + "@" + System.getenv("remoteBrowser");
+        Configuration.remote = "https://" + System.getProperty("user") + ":" + System.getProperty("password") + "@" + System.getProperty("remoteBrowser");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
