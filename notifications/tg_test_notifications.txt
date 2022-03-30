@@ -9,7 +9,7 @@ java \
 
 / Jenkins
 java \
-"-DprojectName=TestRunFromLocal" \
+"-DprojectName=TestRunFromJenkins" \
 "-Denv=Tests" \
 "-DreportLink=TestReports/" \
 "-Dcomm=Any comment here" \
