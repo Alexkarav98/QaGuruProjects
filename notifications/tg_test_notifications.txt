@@ -1,0 +1,17 @@
+// Local in multiple lines
+java \
+"-DprojectName=Local test run" \
+"-Denv=PROD" \
+"-DreportLink=qa.guru/" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/tgconfig.json" \
+-jar notifications/allure-notifications-3.1.2.jar\
+
+/ Jenkins
+java \
+"-DprojectName=TestRunFromLocal" \
+"-Denv=Tests" \
+"-DreportLink=TestReports/" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/tgconfig.json" \
+-jar notifications/allure-notifications-3.1.2.jar

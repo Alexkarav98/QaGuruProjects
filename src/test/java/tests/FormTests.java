@@ -59,7 +59,7 @@ public class FormTests {
     @Tag("Smoke")
     void testFormWithPageObject() {
         StudentRegistrationPageObject studentRegistration = new StudentRegistrationPageObject();
-        open();
+        open("/automation-practice-form");
         //Input
         studentRegistration.openPage()
                 .enterFirstName(firstName)
